@@ -165,28 +165,35 @@ $(document).ready(function(){
 			</td>
 		</tr>
 	`);
-	// Logic to put the handicap in when the play is changed
-	
+
+	// Logic to put the handicap in when the player is changed
 	$("#player").off("change").on("change", function(e){
 		var optionSelected = $("#player").val();
 		if(optionSelected < playerHandicaps.length)
 			$("#handicap").val(playerHandicaps[optionSelected][$("#course").val()]);
 	});
 	
-	$("#finalCheck").on("click", function(){
-		for(var i = 0; i < 18; ++i){
-			let holeVal =  $(`#hole${i+1}Score`).val();
-			let holeInt = parseInt(holeVal ,10);
-			if(holeInt < 0 || holeInt >= 10)
-			{
-				$("#emailResults").attr("disabled", true);
-				alert("You have missed some entries.");
-				return false;
-			}
-		}
-		$("#emailResults").attr("disabled", false);
-
-	})
+	// logic to check that no scores are outside the range 1-9
+	$("#finalCheck").on("click", function ()
+	  { // alert("Starting checks");
+		$("#emailResults").attr("disabled", true);
+		var all_good = 1;        // value showing that all is not well   
+		for (var i = 0; i < 18; ++i)
+		   { var holeInt = parseInt($(`#hole${i + 1}Score`).val(), 10);
+			 if (isNaN(holeInt))
+				    holeInt = 0;
+			 // console.log("Score", holeInt);
+			 if (holeInt < 1 || holeInt > 9)
+			      { alert("There are errors - all scores must be 1-9");
+				    all_good = 0;     // show we have problems
+				    break;
+				  }
+		   }
+		if (all_good == 1)
+		   { // alert("All ok");
+			 $("#emailResults").attr("disabled", false);   // set button on
+		   }
+	  })
 	
 	$("#course").off("change").on("change", function(e){
 		var optionSelected = $("#course").val();
