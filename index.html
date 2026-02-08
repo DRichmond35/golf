@@ -20,11 +20,10 @@
 	
 	// A list of players. Handicaps must align with the order of the players.
 		var players = [
-		"D Richmond",
-		"T Steer",
-        "A Thackrey",
-        "A Turner"
-
+		"David Richmond",
+		"Tony Steer",
+        "Alan Thackrey",
+        "Andrew Turner"
 	];
 	
 	// Handicaps for each player above. Order is important.
@@ -69,7 +68,6 @@ $(document).ready(function(){
 	document.getElementById('playDate').value = formattedDate;
 	
 	// Populate the Courses and Players
-	
 	for(var i = 0; i < courses.length; ++i)
 	{
 		$("#course").append(`<option value='${i}'">${courses[i]}</option>`)
@@ -310,7 +308,7 @@ $(document).ready(function(){
         var p = "";
 		var s_end = "";
         var p_end = "";
-
+        
 		for (var i = 1; i <= 18; ++i)
 		{
 			s += "%09";
@@ -334,7 +332,8 @@ $(document).ready(function(){
 		p_end += $(`#totalPoints`).text() == "" ? 0 :  $(`#totalPoints`).text();
 
 
-        link += `&body=Handicap ${$("#handicap").val()}%0D%0A${s_text}%0D%0A${s}%0D%0A${s_end}%0D%0A${p_text}%0D%0A${p}%0D%0A${p_end}`;
+		// put it all togheter
+        link += `&body=${$("#player option:selected").text()}%0D%0A${$("#course option:selected").text()}%0D%0A${$("#playDate").val()}%0D%0AHandicap ${$("#handicap").val()}%0D%0A${s_text}%0D%0A${s}%0D%0A${s_end}%0D%0A${p_text}%0D%0A${p}%0D%0A${p_end}`;
 		console.log(link);
 		window.open(link);
 	});
@@ -345,12 +344,12 @@ $(document).ready(function(){
 <div>
 	<table>
 		<tr>
-			<td><input type="date" id="playDate" style="border: none; font-weight: 500; font-size: 16px; text-align: center;" /> </td>
+			<td><input type="date" id="playDate" style="border: none; font-weight: 700; font-size: 16px; text-align: center;" /> </td>
 		</tr>
 		<tr>
 			<td>Course</td>
 			<td>
-				<select id="course" placeholder="Please Select Course" class="holeScore">
+				<select id="course" placeholder="Please Select Course" class="holeScore" style="font-weight: 700; font-size: 16px; text-align: center;">
 					<option value="-1">Please Select Course</option>
 
 				</select>
@@ -359,7 +358,7 @@ $(document).ready(function(){
 		<tr>
 			<td>Player Name</td>
 			<td>
-				<select id="player" class="holeScore">
+				<select id="player" class="holeScore" style="font-weight: 700; font-size: 16px; text-align: center;">
 					<option value="-1">Please Select Player</option>
 				</select>
 			</td>
