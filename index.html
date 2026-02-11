@@ -301,7 +301,7 @@ $(document).ready(function(){
 	
 	$("#emailResults").on("click", function(){
 		
-        var link =`mailto:dave@richmond35.com?cc=andrew@aturner.co.uk?subject="Stableford for ${$("#player option:selected").text()} at ${$("#course option:selected").text()} on ${$("#playDate").val()}"`;
+        var link =`mailto:dave@richmond35.com?cc=andrew@aturner.co.uk?subject="V1 Stableford for ${$("#player option:selected").text()} at ${$("#course option:selected").text()} on ${$("#playDate").val()}"`;
 		var s_text = "Score";
         var p_text = "Points";
         var s = "";
@@ -343,6 +343,9 @@ $(document).ready(function(){
 <body>
 <div>
 	<table>
+		<tr>
+			<td>Version 1</td>
+		</tr>
 		<tr>
 			<td><input type="date" id="playDate" style="border: none; font-weight: 700; font-size: 16px; text-align: center;" /> </td>
 		</tr>
