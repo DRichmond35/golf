@@ -20,18 +20,47 @@
 	
 	// A list of players. Handicaps must align with the order of the players.
 		var players = [
-		"David Richmond",
-		"Tony Steer",
-        "Alan Thackrey",
-        "Andrew Turner"
+            "Frank Crizzle",
+            "Desmond Crizzle",
+            "Roy Davis",
+            "Alex Guberman",
+            "Anupam Gupta",
+            "Ranjit Mankoo",
+            "Yuki Miyakawa",
+            "Mike Moore",
+            "David Morgan",
+            "Adrian Paterson",
+            "Pushyant Patel",
+            "Tom Ramage",
+            "David Richmond",
+            "Alan Thackrey",
+            "Andrew Turner",
+            "Tim Warren",
+            "Spare 1",
+            "Spare 2"
 	];
 	
 	// Handicaps for each player above. Order is important.
-		var playerHandicaps = [
-		[27, 27, 27, 27],                       // Heacham, Cromer, Sher, Sandy Lodge
-		[21, 21, 21, 21],
-        [27, 27, 27, 27],
-        [22, 22, 22, 22]
+        var playerHandicaps = [  // Heacham, Cromer, Sher, Sandy Lodge
+            [11, 13, 10, 13],    // Frank Crizzle
+            [18, 21, 17, 20],    // Desmond Crizzle
+            [19, 23, 19, 22],    // Roy Davis
+            [11, 14, 11, 13],    // Alex Guberman
+            [13, 16, 13, 16],    // Anupam Gupta
+            [11, 14, 11, 14],    // Ranjit Mankoo
+            [8, 10, 8, 10],      // Yuki Miyakawa
+            [18, 21, 17, 20],    // Mike Moore
+            [20, 23, 20, 23],    // David Morgan
+            [20, 23, 19, 22],    // Adrian Paterson
+            [18, 22, 18, 21],    // Pushyant Patel
+            [22, 25, 21, 25],    // Tom Ramage
+            [23, 26, 22, 26],    // David Richmond
+            [24, 27, 23, 27],    // Alan Thackrey
+            [19, 22, 19, 22],    // Andrew Turner
+            [20, 23, 19, 22],    // Tim Warren
+            [34, 38, 32, 37],    // AN Other 1
+            [34, 38, 32, 37],    // AN Other 2
+
 	];
 	
 	// Course names. Each course also needs an entry in courseStrokeIndex and courseHolePar
@@ -43,12 +72,27 @@
 	];
 
 	var strokeIndex = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18]
-	
+
+ // HEACHAM	Slope Rating		120	yellow		Course Rating		69.2											
+ // Holes	        1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18
+ // Stroke Index	4	9	17	13	12	1	11	16	5	7	2	15	6	8	14	10	18	3	171
+ // Par	            4	5	4	5	3	4	3	4	4	4	5	4	4	4	3	4	3	5	72
+
+ // CROMER	Slope Rating		127	yellow		Course Rating		71.2
+ // Holes	        1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18
+ // Stroke Index	5	9	15	7	13	1	3	17	11	12	6	16	10	4	2	14	18	8	171
+ // Par	            4	4	4	4	5	4	4	4	3	5	5	4	3	4	4	4	3	4	72
+
+// SHERRINGHAM	Slope Rating	114	yellow		Course Rating		67.7
+// Holes	        1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18
+// Stroke Index	    17	13	3	9	1	11	5	15	7	2	18	8	4	12	14	16	6	10	171
+// Par	            4	5	4	4	4	3	5	3	4	4	3	4	4	4	3	4	4	4	70
+
 	// The stroke index for each hole on the course
 	var courseStrokeIndex = [
 		[4,9,17,13,12,1,11,16,5,7,2,15,6,8,14,10,18,3],    // Heacham
 		[5,9,15,7,13,1,3,17,11,12,6,16,10,4,2,14,18,8],    // Cromer 
-		[17,13,3,12,1,10,6,15,8,2,18,9,4,7,14,16,5,11],    // Sheringham
+		[17,13,3,9,1,11,5,15,7,2,18,8,4,12,14,16,6,10],    // Sheringham
         [12,5,16,10,3,1,14,18,8,11,6,2,15,9,13,4,7,17]     // Sandy Lodge
 	];
 	
@@ -301,7 +345,8 @@ $(document).ready(function(){
 	
 	$("#emailResults").on("click", function(){
 		
-        var link =`mailto:dave@richmond35.com?cc=andrew@aturner.co.uk&subject=Stableford for ${$("#player option:selected").text()} at ${$("#course option:selected").text()} on ${$("#playDate").val()}`;
+//     var link = `mailto:dave@richmond35.com?cc=andrew@aturner.co.uk&subject=Stableford for ${$("#player option:selected").text()} at ${$("#course option:selected").text()} on ${$("#playDate").val()}`;
+       var link =`mailto:dave@richmond35.com?&subject=Stableford for ${$("#player option:selected").text()} at ${$("#course option:selected").text()} on ${$("#playDate").val()}`;
 		var s_text = "Score";
         var p_text = "Points";
         var s = "";
@@ -344,7 +389,7 @@ $(document).ready(function(){
 <div>
 	<table>
 		<tr>
-			<td>Version 2</td>
+			<td>Version 3</td>
 		</tr>
 		<tr>
 			<td><input type="date" id="playDate" style="border: none; font-weight: 700; font-size: 16px; text-align: center;" /> </td>
